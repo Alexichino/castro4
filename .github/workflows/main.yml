@@ -36,11 +36,21 @@ secrets. NGROK AUTH_TOKEN))
 
 run: Set-ItemProperty -Path HKLM\System\CurrentControlSet\Control\Terminal Server name "Deny TSConnections" -Value 0
 
--run: Enable-NetFirewallRule-DisplayGroup."Remote-run: Set-LocalUser Name "runneradmin" Password (Convert To-SecureString-AsPlainText" "orce)
+-run: Enable-NetFirewallRule-DisplayGroup."Remote Desktop 
+-run: Set-itemProperty -Path
 
--run: Set-LocalUser Name "runneradmin" Password (Convert To-SecureString-AsPlainText" "orce)
+HKLM\System\CurrentControlSet\Control\Terminal
+
+Server\WinStations RDP-Tcp -name "User Authentication-
+
+Value 1 -run: Set-LocalUser Name "runneradmin" Password (Convert To-SecureString-AsPlainText" "orce)
 
 name: Create Tunnel
 
 run: Ingrokingrok.exe top 3389
+
+
+
+
+
 
