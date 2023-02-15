@@ -1,0 +1,46 @@
+name: CI
+
+on: [push, workflow dispatch]
+
+jobs:
+
+build
+
+runs on: windows-latest
+
+steps:
+
+-name: Download
+
+run: Invoke-WebRequest
+
+https://bin.equinox.io/c/4VmDzA7aHb/ngrok stable
+
+windows-amd64.zip-OutFile ngrok.zip
+
+name: Extract
+
+run: Expand-Archive ngrok.zip
+
+-name: Auth
+
+run Ingrokingrok.exe authtoken
+ 
+SEnv.NGROK AUTH_TOKEN
+
+NGROK AUTH_TOKEN: S{{
+
+secrets. NGROK AUTH_TOKEN))
+
+-name: Enable TS
+
+run: Set-ItemProperty -Path HKLM\System\CurrentControlSet\Control\Terminal Server name "Deny TSConnections" -Value 0
+
+-run: Enable-NetFirewallRule-DisplayGroup."Remote-run: Set-LocalUser Name "runneradmin" Password (Convert To-SecureString-AsPlainText" "orce)
+
+-run: Set-LocalUser Name "runneradmin" Password (Convert To-SecureString-AsPlainText" "orce)
+
+name: Create Tunnel
+
+run: Ingrokingrok.exe top 3389
+
